@@ -1,11 +1,13 @@
 const scoresRoutes = require("./api/routes/scores");
 const submissionsRoutes = require("./api/routes/submissions");
 const gameRoutes = require("./routes/game");
+const ScoreBoard = require("./models/scoreBoard");
 
 // Config
 const express = require("express");
 const app = express();
 const port = 3000;
+app.locals.scoreBoard = new ScoreBoard();
 
 // Middleware
 app.use(express.static(__dirname + "/views"));
