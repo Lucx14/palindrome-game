@@ -4,9 +4,12 @@
   },
   "scripts": {
     "start": "node src/app.js",
-    "start:dev": "nodemon src/app.js"
+    "start:dev": "nodemon src/app.js",
+    "test": "jest"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6"
   }
 }

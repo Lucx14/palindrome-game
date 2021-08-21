@@ -2,31 +2,24 @@
 
 class ScoreBoard {
   constructor(scores = []) {
-    this.scores = scores;
+    this._scores = scores;
   }
 
   getScores() {
-    // filter for zero??
-    return this.scores;
+    return this._scores;
   }
 
-  updateScoreBoard(player, points) {
-    // lowercase the player names for the check then capitalize for the recording
-    const prev = this.getPlayerScore(player);
-    if (prev) {
-      if (points > prev.points) {
-        // ?????
-        prev.points = points;
-      }
+  updateScores(player, points) {
+    const currentScore = this._getPlayerScore(player);
+    if (currentScore) {
+      if (points > currentScore.points) currentScore.points = points;
     } else {
-      this.scores.push({ name: player, points: points });
+      this._scores.push({ name: player, points: points });
     }
-    return this.getPlayerScore(player);
   }
 
-  getPlayerScore(player) {
-    // returns undefined if nothing is found
-    return this.scores.find((recordedScore) => recordedScore.name === player);
+  _getPlayerScore(player) {
+    return this._scores.find((recordedScore) => recordedScore.name === player);
   }
 }
 
