@@ -3,8 +3,8 @@
     "express": "4.16.2"
   },
   "scripts": {
-    "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start": "node src/app.js",
+    "start:dev": "nodemon src/app.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

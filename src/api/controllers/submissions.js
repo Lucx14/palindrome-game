@@ -1,14 +1,4 @@
-var express = require("express");
-
-var app = express();
-
-app.use(express.static(__dirname));
-
-// example data structure to be returned for the scores:
 const dummyScores = [];
-
-// Body parser
-app.use(express.json());
 
 // This is a service function
 function isPalindrome(text) {
@@ -18,18 +8,7 @@ function isPalindrome(text) {
   return lowerCleanText === reversedText;
 }
 
-// Home page
-app.get("/", function (req, res) {
-  res.render("index.html");
-});
-
-// returns the scores to the client
-app.get("/api/getScores", function (req, res) {
-  return res.status(200).json(dummyScores);
-});
-
-// handle the players submission
-app.post("/api/submitEntry", function (req, res) {
+exports.submitEntry = (req, res, next) => {
   userName = req.body.name;
   userWord = req.body.word;
 
@@ -47,9 +26,4 @@ app.post("/api/submitEntry", function (req, res) {
   } else {
     return res.status(200).json({ points: 0 });
   }
-});
-
-var port = 3000;
-app.listen(port, function () {
-  console.log("Server", process.pid, "listening on port", port);
-});
+};
