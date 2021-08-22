@@ -6,7 +6,10 @@ class ScoreBoard {
   }
 
   getScores() {
-    return this._scores;
+    const topFive = this._scores
+      .sort((a, b) => (a.points < b.points ? 1 : -1))
+      .slice(0, 5);
+    return topFive;
   }
 
   updateScores(player, points) {
