@@ -1,6 +1,6 @@
-const { mockRequest, mockResponse } = require("../../helpers/interceptor");
+const { mockRequest, mockResponse } = require("../../../helpers/interceptor");
 
-const controller = require("../../../api/controllers/submissions");
+const controller = require("../../../../controllers/api/v1/submissions");
 
 describe("Api: submissions controller", () => {
   it("should return a status 200", async () => {
